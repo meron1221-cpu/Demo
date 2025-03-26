@@ -1,0 +1,241 @@
+/* AboutUs.css - Complete Updated Version */
+
+/* Color Scheme */
+:root {
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --light-blue: #e6f2ff;
+  --dark: #1e293b;
+  --light: #f8fafc;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+/* Base Styles */
+.about-us-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+      center/cover;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.animate-text:hover {
+  animation: textShake 0.5s ease;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Team Section */
+.team-section {
+  padding: 80px 0;
+  background-color: var(--light);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  color: var(--dark);
+  transition: all 0.3s ease;
+}
+
+.section-title:hover {
+  color: var(--primary);
+  transform: scale(1.02);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.member-photo-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.team-card:hover .member-photo {
+  filter: brightness(0.9);
+  background-color: var(--light-blue);
+}
+
+.social-links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.team-card:hover .social-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-icon {
+  color: white;
+  background: var(--primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--secondary);
+  transform: scale(1.2) translateY(-5px);
+}
+
+.member-info {
+  padding: 20px;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.member-role {
+  color: var(--primary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.team-card:hover .member-name {
+  color: var(--primary);
+  animation: textShake 0.5s ease;
+}
+
+.team-card:hover .member-role {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-photo-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 80px 0;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}

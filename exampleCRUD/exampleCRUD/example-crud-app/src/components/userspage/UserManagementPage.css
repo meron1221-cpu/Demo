@@ -1,0 +1,219 @@
+/* UserManagementPage.css - Complete Updated Version */
+
+/* Color Scheme */
+:root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --action-btn: #000000; /* Black for action buttons */
+  --success: #4caf50;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --text: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes colorPulse {
+  0% {
+    color: var(--primary);
+  }
+  50% {
+    color: #4fc3f7;
+  }
+  100% {
+    color: var(--primary);
+  }
+}
+
+/* Base Styles */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.user-management-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  color: var(--primary);
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-btn {
+  background-color: var(--success);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-user-btn:hover {
+  background-color: #3e8e41;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+  background-color: white;
+  border-bottom: 2px solid #eee;
+}
+
+.table-header th {
+  padding: 1rem;
+  text-align: left;
+  color: #000000;
+  font-weight: 600;
+}
+
+.table-row {
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: rgba(67, 97, 238, 0.05);
+  transform: translateX(5px);
+}
+
+.table-row td {
+  padding: 1rem;
+  color: var(--text);
+}
+
+.hover-effect:hover {
+  animation: bounce 0.5s ease;
+}
+
+/* Action Buttons */
+.actions-cell {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.action-btn {
+  min-width: 70px;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  background-color: var(--action-btn);
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+}
+
+/* Loading State */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+  animation: colorPulse 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .users-table {
+    font-size: 0.9rem;
+  }
+
+  .action-btn {
+    min-width: 60px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-management-container {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .actions-cell {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .add-user-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .action-btn {
+    min-width: 100%;
+  }
+}

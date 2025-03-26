@@ -1,0 +1,325 @@
+/* HomePage.css - Complete Updated Version */
+
+/* Color Scheme */
+:root {
+  --primary: #4f46e5; /* Indigo */
+  --secondary: #7c3aed; /* Darker indigo */
+  --accent: #a78bfa; /* Light purple */
+  --light: #f8fafc; /* Lightest gray */
+  --dark: #1e293b; /* Dark blue-gray */
+  --text: #334155; /* Grayish blue */
+  --success: #10b981; /* Emerald */
+  --warning: #f59e0b; /* Amber */
+  --danger: #ef4444; /* Red */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes danceText {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(0) rotate(1deg);
+  }
+  75% {
+    transform: translateY(3px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+}
+
+@keyframes tapDance {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-on-load {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Base Styles */
+.home-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+      center/cover;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.hero-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 300;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.hero-content:hover h1 {
+  animation: danceText 0.8s ease infinite alternate;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.hero-content:hover h2 {
+  animation: danceText 0.8s ease 0.2s infinite alternate;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.hero-content:hover .hero-description {
+  animation: danceText 0.8s ease 0.4s infinite alternate;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Touch devices */
+@media (hover: none) {
+  .hero-content h1,
+  .hero-content h2,
+  .hero-content .hero-description {
+    animation: danceText 0.8s ease infinite alternate;
+  }
+}
+
+/* Tap animation for mobile */
+.hero-content:active h1,
+.hero-content:active h2,
+.hero-content:active .hero-description {
+  animation: tapDance 0.3s ease;
+}
+
+.cta-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section */
+.features-section {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: -60px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid #eaeaea;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  animation: pulse 1s infinite;
+  color: var(--secondary);
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+  color: var(--dark);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover h3 {
+  color: var(--primary);
+}
+
+.feature-card p {
+  color: var(--text);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* Unique colors for each feature card */
+.feature-card:nth-child(1):hover {
+  border-top-color: var(--primary);
+}
+.feature-card:nth-child(1):hover::before {
+  background: var(--primary);
+}
+
+.feature-card:nth-child(2):hover {
+  border-top-color: var(--success);
+}
+.feature-card:nth-child(2):hover::before {
+  background: var(--success);
+}
+
+.feature-card:nth-child(3):hover {
+  border-top-color: var(--warning);
+}
+.feature-card:nth-child(3):hover::before {
+  background: var(--warning);
+}
+
+.feature-card:nth-child(4):hover {
+  border-top-color: var(--danger);
+}
+.feature-card:nth-child(4):hover::before {
+  background: var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    margin-top: -30px;
+  }
+
+  .feature-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 80px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}

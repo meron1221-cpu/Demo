@@ -1,0 +1,143 @@
+/* ProfilePage.css - Without Photo Section */
+.profile-page-container {
+  max-width: 380px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease-out;
+}
+
+.profile-page-container.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-header {
+  color: #4caf50;
+  text-align: center;
+  margin: 0 0 1.2rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.profile-card {
+  padding: 1.2rem;
+}
+
+/* Profile Info */
+.profile-info-group {
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-label {
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.profile-value {
+  color: #333;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Badges */
+.badges-container {
+  display: flex;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+  justify-content: center;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.gold {
+  background: linear-gradient(to right, #ffd700, #ffcc00);
+  color: #333;
+}
+
+.silver {
+  background: linear-gradient(to right, #e0e0e0, #c0c0c0);
+  color: #333;
+}
+
+/* Update Button */
+.update-button {
+  display: block;
+  background-color: #4caf50;
+  color: white;
+  padding: 0.7rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  margin: 1.5rem auto 0 auto;
+  font-size: 0.95rem;
+  width: 70%;
+  transition: background-color 0.2s;
+}
+
+.update-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Loading State */
+.profile-page-container.loading .profile-value {
+  color: transparent;
+  background: #eee;
+  width: 60%;
+  height: 1rem;
+  border-radius: 2px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .profile-page-container {
+    padding: 1.2rem;
+    margin: 0.8rem;
+    max-width: calc(100% - 1.6rem);
+  }
+
+  .update-button {
+    width: 80%;
+  }
+}
